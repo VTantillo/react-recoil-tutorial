@@ -16,13 +16,13 @@ export { selector } from './lib/core/selector';
 
 // Hooks
 export {
-    useRecoilValue,
-    useRecoilValueLoadable,
-    useRecoilState,
-    useRecoilStateLoadable,
-    useSetRecoilState,
-    useResetRecoilState,
-    useRecoilCallback,
+  useRecoilValue,
+  useRecoilValueLoadable,
+  useRecoilState,
+  useRecoilStateLoadable,
+  useSetRecoilState,
+  useResetRecoilState,
+  useRecoilCallback,
 } from './lib/core/hooks';
 
 // Other
