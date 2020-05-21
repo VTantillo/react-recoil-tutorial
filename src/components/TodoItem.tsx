@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { todoListState } from 'atoms';
 import { replaceItemAtIndex, deleteItemAtIndex } from 'utils';
+import { TodoTask } from 'models';
 
 const ItemWrapper = styled.div`
   height: 30px;
@@ -27,17 +28,17 @@ const ItemWrapper = styled.div`
 `;
 
 interface ItemProps {
-  item: any;
+  item: TodoTask;
 }
 export default function TodoItem(props: ItemProps) {
-  const [todoList, setTodoList] = useRecoilState<any[]>(todoListState);
+  const [todoList, setTodoList] = useRecoilState<TodoTask[]>(todoListState);
   const index = todoList.findIndex((listItem) => listItem === props.item);
 
   function editItemText(event: any) {
     const newList = replaceItemAtIndex(todoList, index, {
       ...props.item,
       text: event.target.value,
-    });
+    } as TodoTask);
 
     setTodoList(newList);
   }
@@ -46,7 +47,7 @@ export default function TodoItem(props: ItemProps) {
     const newList = replaceItemAtIndex(todoList, index, {
       ...props.item,
       isComplete: !props.item.isComplete,
-    });
+    } as TodoTask);
 
     setTodoList(newList);
   }

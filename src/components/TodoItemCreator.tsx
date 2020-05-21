@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { useSetRecoilState } from 'recoil';
 import { todoListState } from 'atoms';
 
+import { TodoTask } from 'models';
+
 const CreatorWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -15,16 +17,16 @@ const CreatorWrapper = styled.div`
 
 export default function TodoItemCreator() {
   const [inputValue, setInputValue] = React.useState<string>('');
-  const setTodoList = useSetRecoilState<any[]>(todoListState);
+  const setTodoList = useSetRecoilState<TodoTask[]>(todoListState);
 
   function addItem() {
-    setTodoList((oldTodoList: any[]) => [
+    setTodoList((oldTodoList: TodoTask[]) => [
       ...oldTodoList,
       {
         id: getId(),
         text: inputValue,
         isComplete: false,
-      },
+      } as TodoTask,
     ]);
     setInputValue('');
   }

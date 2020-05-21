@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
 
 import { filteredTodoListSate } from 'atoms';
+import { TodoTask } from 'models';
 
 import TodoItemCreator from './TodoItemCreator';
 import TodoItem from './TodoItem';
@@ -17,7 +18,7 @@ const ListWrapper = styled.div`
 const List = styled.div``;
 
 export default function TodoList() {
-  const todoList = useRecoilValue<any[]>(filteredTodoListSate);
+  const todoList = useRecoilValue<TodoTask[]>(filteredTodoListSate);
 
   return (
     <ListWrapper>

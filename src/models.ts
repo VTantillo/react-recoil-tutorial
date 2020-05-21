@@ -1,17 +1,12 @@
-export interface TodoList {
-  stats: TodoListStats;
-  items: TodoItem[];
-}
-
-export interface TodoItem {
+export interface TodoTask {
   id: number;
   text: string;
-  isCompleted: boolean;
+  isComplete: boolean;
 }
 
-export interface TodoListStats {
-  totalItems: number;
-  itemsCompleted: number;
-  itemsUncompleted: number;
+export interface ListStats {
+  totalNum: number;
+  totalCompletedNum: number;
+  totalUncompletedNum: number;
   percentCompleted: number;
 }
